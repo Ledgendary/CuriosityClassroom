@@ -948,7 +948,7 @@ body.offcanvas .cmoodie-nav-toggle {
 }
 .cmoodie-nav-toggle.dark i {
     position: relative;
-    color: #171717;
+    color: #1cb172;
     background: #1cb172;
     -webkit-transition: all .2s ease-out;
     -o-transition: all .2s ease-out;
@@ -956,7 +956,7 @@ body.offcanvas .cmoodie-nav-toggle {
 }
 .cmoodie-nav-toggle.dark i::before,
 .cmoodie-nav-toggle.dark i::after {
-    background: #171717;
+    background: #1cb172;
     -webkit-transition: 0.2s;
     -o-transition: 0.2s;
     transition: 0.2s;
