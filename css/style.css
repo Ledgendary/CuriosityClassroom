@@ -909,7 +909,7 @@ body.offcanvas .cmoodie-nav-toggle {
 }
 .cmoodie-nav-toggle.dark.active i::before,
 .cmoodie-nav-toggle.dark.active i::after {
-    background: #171717;
+    background: #1cb172;
 }
 .cmoodie-nav-toggle:hover,
 .cmoodie-nav-toggle:focus,
@@ -949,7 +949,7 @@ body.offcanvas .cmoodie-nav-toggle {
 .cmoodie-nav-toggle.dark i {
     position: relative;
     color: #171717;
-    background: #171717;
+    background: #1cb172;
     -webkit-transition: all .2s ease-out;
     -o-transition: all .2s ease-out;
     transition: all .2s ease-out;
@@ -1004,7 +1004,7 @@ body.offcanvas .cmoodie-nav-toggle {
     -webkit-transition: 0.5s;
     -o-transition: 0.5s;
     transition: 0.5s;
-    background: #171717;
+    background: #1cb172;
     margin: 15px 30px;
     border-radius: 50%;
 }
