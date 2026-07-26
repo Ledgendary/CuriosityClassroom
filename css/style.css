@@ -1181,8 +1181,10 @@ h1, h2, h3, h4 {
     .card-grid, .steps { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
     .steps { gap: 3rem; }
     .options-grid, .testimonial-grid { grid-template-columns: 1fr; }
-    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .footer-grid { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
+    .footer-brand p { margin-left: auto; margin-right: auto; }
     .footer-logo-col { order: -1; justify-self: center; }
+    .footer-bottom { justify-content: center; text-align: center; }
 }
 
 /* pills need more width, so the menu collapses earlier than other
