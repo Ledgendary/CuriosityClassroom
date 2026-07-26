@@ -1067,23 +1067,35 @@ h1, h2, h3, h4 {
    Image lightbox
    -------------------------------------------------------------------------- */
 
-.gallery-strip .polaroid img,
-.hero-collage .polaroid img,
-.story-photo .polaroid img,
-.option-card .photo img { cursor: zoom-in; }
+.gallery-strip .polaroid,
+.hero-collage .polaroid,
+.story-photo .polaroid,
+.option-card .photo { cursor: zoom-in; }
 
 .lightbox {
     position: fixed;
-    inset: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    /* 100lvh = tallest possible mobile viewport, so the dim layer still
+       covers the page while the browser's address bar slides away */
+    height: 100vh;
+    height: 100lvh;
     z-index: 300;
     display: grid;
     place-items: center;
     padding: 1.6rem;
-    background: rgba(42, 36, 51, 0.55);
-    backdrop-filter: blur(3px);
+    background: rgba(42, 36, 51, 0.6);
+    overscroll-behavior: contain;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.25s ease, visibility 0.25s;
+}
+
+/* blur is desktop-only: large fixed backdrop-filters repaint
+   unreliably on mobile browsers */
+@media (min-width: 761px) {
+    .lightbox { backdrop-filter: blur(3px); }
 }
 
 .lightbox.open { opacity: 1; visibility: visible; }
@@ -1106,7 +1118,10 @@ h1, h2, h3, h4 {
 .lightbox-panel img {
     display: block;
     max-width: 100%;
+    /* svh = smallest mobile viewport, so the panel always fits even
+       with the address bar showing */
     max-height: 76vh;
+    max-height: 72svh;
     width: auto;
     height: auto;
     margin: 0 auto;

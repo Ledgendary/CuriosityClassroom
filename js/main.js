@@ -15,8 +15,8 @@ if (navToggle && navLinks) {
 // Image lightbox: click a photo to see it large in a sticker-style panel
 (function () {
     const zoomables = document.querySelectorAll(
-        '.gallery-strip .polaroid img, .hero-collage .polaroid img, ' +
-        '.story-photo .polaroid img, .option-card .photo img'
+        '.gallery-strip .polaroid, .hero-collage .polaroid, ' +
+        '.story-photo .polaroid, .option-card .photo'
     );
     if (!zoomables.length) return;
 
@@ -37,12 +37,13 @@ if (navToggle && navLinks) {
     const closeBtn = box.querySelector('.lightbox-close');
     let lastFocus = null;
 
-    function open(img) {
-        lastFocus = img;
+    function open(el) {
+        const img = el.querySelector('img');
+        if (!img) return;
+        lastFocus = el;
         bigImg.src = img.currentSrc || img.src;
         bigImg.alt = img.alt || '';
-        const polaroid = img.closest('.polaroid');
-        const cap = polaroid ? polaroid.querySelector('.caption') : null;
+        const cap = el.querySelector('.caption');
         caption.textContent = cap ? cap.textContent : '';
         box.classList.add('open');
         document.body.style.overflow = 'hidden';
@@ -55,12 +56,12 @@ if (navToggle && navLinks) {
         if (lastFocus) lastFocus.focus();
     }
 
-    zoomables.forEach((img) => {
-        img.setAttribute('tabindex', '0');
-        img.setAttribute('role', 'button');
-        img.addEventListener('click', () => open(img));
-        img.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(img); }
+    zoomables.forEach((el) => {
+        el.setAttribute('tabindex', '0');
+        el.setAttribute('role', 'button');
+        el.addEventListener('click', () => open(el));
+        el.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(el); }
         });
     });
     closeBtn.addEventListener('click', close);
