@@ -494,7 +494,7 @@ h1, h2, h3, h4 {
 .marquee-track {
     display: flex;
     width: max-content;
-    animation: marquee 165s linear infinite;
+    animation: marquee 330s linear infinite;
     font-family: var(--font-display);
     font-weight: 700;
     font-size: 1.05rem;
