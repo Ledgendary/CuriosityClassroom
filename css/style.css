@@ -329,7 +329,7 @@ h1, h2, h3, h4 {
     font-family: var(--font-hand);
     font-size: 1.35rem;
     color: var(--ink-soft);
-    transform: rotate(-1.2deg);
+    transform: rotate(1.2deg);
     margin-bottom: 1.5rem;
 }
 
@@ -460,6 +460,7 @@ h1, h2, h3, h4 {
     -webkit-text-stroke: 1.5px var(--ink);
     bottom: 4%;
     right: 8%;
+    transform: rotate(-8deg);
     animation-delay: 1.2s;
 }
 
@@ -574,6 +575,9 @@ h1, h2, h3, h4 {
 .eyebrow-purple { background: var(--purple); }
 .eyebrow-yellow { background: var(--yellow); color: var(--ink); }
 
+/* tilts alternate down the page so the lean reads as playful, not broken */
+.eyebrow.flip { transform: rotate(1.5deg); }
+
 .section-title {
     font-size: clamp(1.9rem, 4vw, 2.8rem);
     font-weight: 800;
@@ -669,6 +673,7 @@ h1, h2, h3, h4 {
 }
 
 .card:hover { transform: translateY(-6px) rotate(-0.5deg); }
+.card-grid .card:nth-child(2):hover { transform: translateY(-6px) rotate(0.5deg); }
 
 .card .icon {
     display: inline-grid;
@@ -682,6 +687,8 @@ h1, h2, h3, h4 {
     box-shadow: var(--shadow-sm);
     transform: rotate(-3deg);
 }
+
+.card-grid .card:nth-child(2) .icon { transform: rotate(3deg); }
 
 .icon-teal { background: var(--teal-tint); }
 .icon-yellow { background: var(--yellow-tint); }
@@ -812,6 +819,8 @@ h1, h2, h3, h4 {
     margin-bottom: 0.8rem;
     transform: rotate(-1.5deg);
 }
+
+.options-grid .option-card:nth-child(2) .option-tag { transform: rotate(1.5deg); }
 
 /* --------------------------------------------------------------------------
    Gallery — horizontal scroll strip
@@ -1041,7 +1050,7 @@ h1, h2, h3, h4 {
     font-family: var(--font-hand);
     font-size: 1.6rem;
     color: var(--yellow);
-    transform: rotate(-2deg);
+    transform: rotate(2deg);
 }
 
 /* --------------------------------------------------------------------------
