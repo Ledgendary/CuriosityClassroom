@@ -493,9 +493,8 @@ h1, h2, h3, h4 {
 
 .marquee-track {
     display: flex;
-    gap: 2.5rem;
     width: max-content;
-    animation: marquee 55s linear infinite;
+    animation: marquee 165s linear infinite;
     font-family: var(--font-display);
     font-weight: 700;
     font-size: 1.05rem;
@@ -503,7 +502,14 @@ h1, h2, h3, h4 {
     white-space: nowrap;
 }
 
-.marquee-track span { display: inline-flex; align-items: center; gap: 2.5rem; }
+/* each copy carries its own trailing space so the six copies tile
+   perfectly and the -50% restart frame is pixel-identical */
+.marquee-track span {
+    display: inline-flex;
+    align-items: center;
+    gap: 2.5rem;
+    padding-right: 2.5rem;
+}
 
 .marquee-track b { font-weight: inherit; }
 .marquee-track b:nth-of-type(5n+1) { color: var(--yellow); }
