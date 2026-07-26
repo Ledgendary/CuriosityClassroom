@@ -36,6 +36,7 @@ if (navToggle && navLinks) {
     const caption = box.querySelector('.lightbox-caption');
     const closeBtn = box.querySelector('.lightbox-close');
     let lastFocus = null;
+    let scrollY = 0;
 
     function open(el) {
         const img = el.querySelector('img');
@@ -45,15 +46,29 @@ if (navToggle && navLinks) {
         bigImg.alt = img.alt || '';
         const cap = el.querySelector('.caption');
         caption.textContent = cap ? cap.textContent : '';
+        // freeze the page: body itself becomes fixed, so mobile browsers
+        // cannot scroll the background behind the overlay
+        scrollY = window.scrollY;
+        document.body.style.position = 'fixed';
+        document.body.style.top = -scrollY + 'px';
+        document.body.style.left = '0';
+        document.body.style.right = '0';
         box.classList.add('open');
-        document.body.style.overflow = 'hidden';
-        closeBtn.focus();
+        closeBtn.focus({ preventScroll: true });
     }
 
     function close() {
         box.classList.remove('open');
-        document.body.style.overflow = '';
-        if (lastFocus) lastFocus.focus();
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.left = '';
+        document.body.style.right = '';
+        // jump (not smooth-scroll) back to where the visitor was
+        const html = document.documentElement;
+        html.style.scrollBehavior = 'auto';
+        window.scrollTo(0, scrollY);
+        html.style.scrollBehavior = '';
+        if (lastFocus) lastFocus.focus({ preventScroll: true });
     }
 
     zoomables.forEach((el) => {
