@@ -452,7 +452,7 @@ a { color: var(--green); }
 
 .stamp svg text {
     font: 700 10px var(--font-body);
-    letter-spacing: 3.3px; /* tuned so the ring text fills the full circle */
+    letter-spacing: 3px; /* tuned so the ring text fills the full circle */
     fill: var(--green-900);
     text-transform: uppercase;
 }
