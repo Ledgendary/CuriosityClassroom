@@ -515,7 +515,7 @@ a { color: var(--green); }
 .ticker-track {
     display: flex;
     width: max-content;
-    animation: tick 130s linear infinite;
+    animation: tick 160s linear infinite;
 }
 
 .ticker-track span {
